@@ -76,6 +76,10 @@ public class Concentration extends WindowController implements ActionListener
     (depending on if they match or not) on THIRD click */
     private void processRegularMode(Card card) {
 
+        //If user clicks on same card twice, ignore second click
+        if (card == firstCard)
+            return;
+
         //If no card has been clicked yet and player clicks on a card,
             //assign clicked card to firstCard, reveal symbol, and exit method
         if (firstCard == null) {
@@ -115,6 +119,14 @@ public class Concentration extends WindowController implements ActionListener
     vanish on second click (rather than the third click like in regular mode).
     Similarly, unmatched cards, when clicked, turn facedown on second click. */
     public void processCheatMode (Card card) {
+
+        //If user clicks on same card twice, ignore second click (by exiting method)
+        //OR if user clicks on a facedown card in cheat mode, ignore that click
+            //Significance: if user clicks on two unmatched cards and they turn facedown,
+                //clicking on a hidden card should not interfere with state of game in cheat mode
+        if (card == firstCard || card.isHidden()) {
+            return;
+        }
 
         //If no card has been clicked yet and player clicks on a card,
             //assign clicked card to first card and exit method
