@@ -20,6 +20,8 @@ public class Card
 
     private Text text;
 
+    private boolean hiddenFlag;
+
     /* Card constructor ensures card will be presented facedown at start of program */
     public Card (double left, double top, char symbol, DrawingCanvas canvas) {
 
@@ -42,6 +44,7 @@ public class Card
 
         //Hide symbol to simulate facedown effect
         text.hide();
+        hiddenFlag = true;
 
         //Save symbol reference to use in getSymbol method
         this.symbol = symbol;
@@ -52,12 +55,14 @@ public class Card
     public void showSymbol() {
 
         text.show();
+        hiddenFlag = false;
     }
 
     /* Hides the symbol on card, essentially "flips" card facedown */
     public void hideSymbol() {
 
         text.hide();
+        hiddenFlag = true;
     }
 
     /* Returns the symbol that has been assigned to card */
@@ -76,7 +81,14 @@ public class Card
     /* Removes entire card from the window canvas */
     public void removeFromCanvas() {
 
+
         card.removeFromCanvas();
         text.removeFromCanvas();
+    }
+
+    /* Tells whether or not card (aka symbol) is hidden (aka facedown) */
+    public boolean isHidden() {
+
+        return hiddenFlag;
     }
 }
