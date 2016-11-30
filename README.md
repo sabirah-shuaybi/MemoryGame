@@ -15,6 +15,11 @@ pair of cards. Since it is a 'Card Collection' the class handles behaviors such 
 cards, revealing all the cards, removing all the cards (for a new game), removing a single card 
 and finding which card from the collection was clicked.
 
+The __Card__ class is in charge of defining the blueprint for a single card. This blueprint
+consists of creating a card (FilledRect), centering the symbol and initially hiding it when
+program begins to simulate a facedown card. The class also defines methods for the behaviors
+that a single card can perform, such as faceup, facedown, return symbol, and contains.
+
 __@author Sabirah Shuaybi__
  
 __@version 11/15/16__
