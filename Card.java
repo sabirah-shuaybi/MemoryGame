@@ -74,7 +74,7 @@ public class Card
     /* Determines if user clicked on card */
     public boolean contains(Location point) {
 
-        //Returns true or false based on contains statement below
+        //Return true or false based on contains statement below
         return card.contains(point);
     }
 
